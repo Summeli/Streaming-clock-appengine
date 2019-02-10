@@ -79,11 +79,12 @@
                    p = pause
                    r = reset*/
         if(msg.charAt(0) === 'r'){
-            running = 1;
+            running = 0;
             sec = 0;
             $("#seconds").html(0);
             $("#minutes").html(0);
         }else if(msg.charAt(0) === 's'){
+            running = 1;
             stopped = 0;
         }else if(msg.charAt(0) === 'p'){
             stopped = msg.substring(1) / 1000;
