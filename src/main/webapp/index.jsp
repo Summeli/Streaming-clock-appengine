@@ -20,5 +20,11 @@
   <title>Send a message </title>
   <body>
     <p>finice time streamer </p>
+    <a href="cd_clock.jsp">couting down clock client</a>
+    <a href="cu_clock.jsp">couting up clock client</a>
+    <br><br><br>
+    <a href="cd_clocksync.jsp">couting down clock demo server sync</a>
+    <a href="cu_clocksync.jsp">couting up clock demo server sync</a>
+    <href=cd_clock.jsp>
   </body>
 </html>
