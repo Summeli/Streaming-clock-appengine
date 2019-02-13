@@ -18,27 +18,18 @@ package com.finice;
 
 import com.google.common.base.Preconditions;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.concurrent.Future;
 import java.util.logging.Logger;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.eclipse.jetty.http.HttpStatus;
-import org.eclipse.jetty.util.ssl.SslContextFactory;
-import org.eclipse.jetty.websocket.api.Session;
-import org.eclipse.jetty.websocket.api.WebSocketPolicy;
-import org.eclipse.jetty.websocket.client.ClientUpgradeRequest;
-import org.eclipse.jetty.websocket.client.WebSocketClient;
-import org.eclipse.jetty.websocket.common.scopes.SimpleContainerScope;
 
-@WebServlet("/send")
+@WebServlet("/getAdress")
 /** Servlet that sends the message sent over POST to over a websocket connection. */
-public class SendServlet extends HttpServlet {
+public class servletUri extends HttpServlet {
 
-  private Logger logger = Logger.getLogger(SendServlet.class.getName());
+  private Logger logger = Logger.getLogger(servletUri.class.getName());
 
   private static final String ENDPOINT = "/time";
   private static final String WEBSOCKET_PROTOCOL_PREFIX = "ws://";
@@ -52,60 +43,18 @@ public class SendServlet extends HttpServlet {
   // GAE_SERVICE environment variable is set to the GCP service name.
   private static final String GAE_SERVICE_ENV_VAR = "GAE_SERVICE";
 
-  private final WebSocketClient webSocketClient;
-  private final ClientSocket clientSocket;
-
-  public SendServlet() {
-    this.webSocketClient = createWebSocketClient();
-    this.clientSocket = new ClientSocket();
+  public servletUri() {
   }
 
-  @Override
-  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String message = request.getParameter("message");
-    try {
-      sendMessageOverWebSocket(message);
-      response.sendRedirect("/");
-    } catch (Exception e) {
-      logger.severe("Error sending message over socket: " + e.getMessage());
-      e.printStackTrace(response.getWriter());
-      response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR_500);
-    }
-  }
-
-  private WebSocketClient createWebSocketClient() {
-    WebSocketClient webSocketClient;
-    if (System.getenv(GAE_INSTANCE_VAR) != null) {
-      // If on HTTPS, create client with SSL Context
-      SslContextFactory sslContextFactory = new SimpleContainerScope(
-              WebSocketPolicy.newClientPolicy())
-              .getSslContextFactory();
-      webSocketClient = new WebSocketClient(sslContextFactory);
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    String protocol = req.getProtocol();
+    String msg = "Method is not supported";
+    if (protocol.endsWith("1.1")) {
+      resp.sendError(405, msg);
     } else {
-      // local testing on HTTP
-      webSocketClient = new WebSocketClient();
-    }
-    return webSocketClient;
-  }
+      resp.sendError(400, msg);
 
-  private void sendMessageOverWebSocket(String message) throws Exception {
-    if (!webSocketClient.isRunning()) {
-      try {
-        webSocketClient.start();
-      } catch (URISyntaxException e) {
-        e.printStackTrace();
-      }
     }
-    ClientUpgradeRequest request = new ClientUpgradeRequest();
-    // Attempt connection
-    Future<Session> future = webSocketClient.connect(clientSocket,
-        new URI(getWebSocketAddress()), request);
-    // Wait for Connect
-    Session session = future.get();
-    // Send a message
-    session.getRemote().sendString(message);
-    // Close session
-    session.close();
   }
 
   /**

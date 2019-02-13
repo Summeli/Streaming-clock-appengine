@@ -27,7 +27,7 @@ import org.eclipse.jetty.websocket.api.WebSocketAdapter;
  * Server-side WebSocket : echoes received message back to client.
  */
 public class ServerSocket extends WebSocketAdapter {
-  private Logger logger = Logger.getLogger(SendServlet.class.getName());
+  private Logger logger = Logger.getLogger(servletUri.class.getName());
   private final static List<ServerSocket> registeredSockets = new ArrayList();
 
   @Override

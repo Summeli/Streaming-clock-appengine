@@ -1,0 +1,36 @@
+#clock {
+    width: 150px;
+    height: 100px;
+    background: blue;
+    overflow: hidden;
+}
+
+#timebox{
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    margin-top: 15%;
+    background: green;
+}
+ #c_text{
+	position: relative;
+	margin-top: 15%;
+	position: relative;
+	height: 20px;
+	text-align: center;
+	width: 100%;
+    height: 10%;
+	font-size: 20px;
+}
+
+.timetext{
+	text-align: center;
+	font-size: 35px;
+	font:Lato;
+}
+
+.tech_stuff{
+	position: relative;
+	margin-top: 20px;
+}
