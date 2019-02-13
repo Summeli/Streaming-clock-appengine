@@ -17,15 +17,15 @@
 <html>
 <%@ page import="com.finice.SendServlet" %>
   <head>
-    <script src="lib/jquery.min.js"></script>
-  	<link rel="stylesheet" href="timer.css">
+    <script src="_assets/lib/jquery.min.js"></script>
+  	<link rel="stylesheet" href="_assets/css/timer.css">
 
     <title>Finice streaming clock</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
 	<div id="clock">
-		<div id="c_text">Time remaining:</div>
+		<div id="c_text">TIME LEFT</div>
 		<div id="timebox">
 			<div class="timetext"><span id="minutes"></span>:<span id="seconds"></span></div>
 		</div>

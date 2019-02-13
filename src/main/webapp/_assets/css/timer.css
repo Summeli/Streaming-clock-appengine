@@ -1,7 +1,7 @@
 #clock {
-    width: 150px;
-    height: 100px;
-    background: blue;
+    width: 190px;
+    height: 140px;
+    background-image: url("../img/clock_bg.png");
     overflow: hidden;
 }
 
@@ -11,7 +11,6 @@
     height: 50%;
     margin: auto;
     margin-top: 15%;
-    background: green;
 }
  #c_text{
 	position: relative;
@@ -21,12 +20,14 @@
 	text-align: center;
 	width: 100%;
     height: 10%;
-	font-size: 20px;
+	font-size: 30px;
+	color: white;
 }
 
 .timetext{
 	text-align: center;
-	font-size: 35px;
+	color: white;
+	font-size: 45px;
 	font:Lato;
 }
 
