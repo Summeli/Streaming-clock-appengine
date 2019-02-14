@@ -17,27 +17,35 @@
 <html>
 <%@ page import="com.finice.SendServlet" %>
   <head>
+    <script src="_assets/lib/jquery.min.js"></script>
+    <link rel="stylesheet" href="_assets/css/timer.css">
     <title>Finice streaming clock</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <span id="minutes"></span>:<span id="seconds"></span>
+   <body>
+ 	<div id="clock">
+ 		<div id="c_text">TIME LEFT</div>
+ 		<div id="timebox">
+ 			<div class="timetext"><span id="minutes"></span>:<span id="seconds"></span></div>
+ 		</div>
+ 	</div>
+	<br><br><br><br>
+	<div class="tech_stuff>
+        <label for="delay">Stream delay in seconds (1-60):</label>
+        <input type="number" id="delay" name="delay"
+               min="0" max="60">
+        <br>
+        <div>
+          <p>Messages:</p>
+          <ul id="echo-response"></ul>
+        </div>
 
-    <br>
-    <label for="delay">Stream delay in seconds (1-60):</label>
-    <input type="number" id="delay" name="delay"
-           min="0" max="60">
-    <br>
-    <div>
-      <p>Messages:</p>
-      <ul id="echo-response"></ul>
+        <div>
+          <p>Status:</p>
+          <ul id="echo-status"></ul>
+        </div>
     </div>
-
-    <div>
-      <p>Status:</p>
-      <ul id="echo-status"></ul>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
     var sec = 0;
     var running = 0;
