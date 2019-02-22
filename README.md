@@ -11,13 +11,13 @@ This project uses websockets to start / stop timer
 reset clock to 0 and start it   
 `srs`  
   
-false start righ / left  
+false start right / left  
 `srf` or `slf`  
   
-update bib-number left/right clock  
+update bib-number right / left clock  
 `sbrxxx` or `sblxxx` where xxx is the bib number    
   
-stop right/left clock  
+stop right / left clock  
 `ssrxxxxbyyy` or `sslxxxxbyyy` where xxxx is time in milliseconds and yyy is the bib number  
 
 ## Requirements
