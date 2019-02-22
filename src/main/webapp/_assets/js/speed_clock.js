@@ -74,7 +74,13 @@ $(function () {
 	  bib_l = msg.substring(3, msg.lenght);
 	  console.log("bib number left" + msg.substring(3, bib_l));
 	  $("#bib_left").html(bib_l);
-	} else if (cmd === 'ssr') {
+	}else if( cmd === 'srf'){
+        console.log("false start right");
+        results_output.prepend($('<li>').text("bib:"+bib_r +" false start"));
+	}else if(cmd === 'slf'){
+	    results_output.prepend($('<li>').text("bib:"+bib_l +" false start"));
+	    console.log("false start left");
+	}else if (cmd === 'ssr') {
 	  var b = msg.indexOf('b');
 	  var ls = msg.substring(3, b);
 	  bib_r = msg.substring(b+1,msg.lenght);
