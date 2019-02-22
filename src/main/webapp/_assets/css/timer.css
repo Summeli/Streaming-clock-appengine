@@ -1,18 +1,18 @@
-#clock {
+.clock {
     width: 190px;
     height: 140px;
     background-image: url("../img/clock_bg.png");
     overflow: hidden;
 }
 
-#timebox{
+.timebox{
     position: relative;
-    width: 50%;
+    width: 90%;
     height: 50%;
     margin: auto;
     margin-top: 15%;
 }
- #c_text{
+ .c_text{
 	position: relative;
 	margin-top: 15%;
 	position: relative;
@@ -30,8 +30,22 @@
 	font-size: 45px;
 	font:Lato;
 }
+.timers{
+	position: relative;
+    overflow: hidden;
+    top: 10px;
+    left: 0px;
+}
 
 .tech_stuff{
 	position: relative;
-	margin-top: 20px;
+	overflow: hidden;
+	top: 2000px;
+}
+.left{
+	float: left;
+}
+.right{
+	float:right;
+	margin-left:10px;
 }

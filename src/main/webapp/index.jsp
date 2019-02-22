@@ -15,16 +15,20 @@
   limitations under the License.
 -->
 <html>
+  <%@ page import="com.finice.SendServlet" %>
   <head>
+  <link rel="icon" type="image/png" href="_assets/img/favicon.png" />
   </head>
   <title>Send a message </title>
   <body>
     <p>finice time streamer </p>
-    <a href="cd_clock.jsp">couting down clock client</a>
-    <a href="cu_clock.jsp">couting up clock client</a>
+    <p>webSocketUri = "<%=SendServlet.getWebSocketAddress() %>"</p>
+    <br><br>
+    <h3>Speed climbing client</h3>
+    <a href="speed_clock.jsp">Speed climbing demo client</a>
     <br><br><br>
-    <a href="cd_clocksync.jsp">couting down clock demo server sync</a>
-    <a href="cu_clocksync.jsp">couting up clock demo server sync</a>
-    <href=cd_clock.jsp>
+    <h3>emulator</h3>
+    <a href="speed_emulator.jsp">Alge/TIMMY Speed climbing emulator</a>
+    <br><br><br>
   </body>
 </html>
