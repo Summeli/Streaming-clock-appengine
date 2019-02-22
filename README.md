@@ -12,7 +12,7 @@ reset clock to 0 and start it
 update bib-number left/right clock  
 'sbrxxx' or 'sblxxx' where xxx is the bib number  
 stop right/left clock  
-'ssr' or 'ssl'   
+'ssrxxxxbyyy' or 'sslxxxxbyyy' where xxxx is time in milliseconds and yyy is the bib number  
 
 ## Requirements
 
