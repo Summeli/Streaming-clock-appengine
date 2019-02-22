@@ -6,13 +6,17 @@ Written with / for Google appengine
 
 ## The protocol
 This project uses websockets to start / stop timer  
+  
 ### Speed  
 reset clock to 0 and start it   
 `srs`  
+  
 false start righ / left  
 `srf` or `slf`  
+  
 update bib-number left/right clock  
 `sbrxxx` or `sblxxx` where xxx is the bib number    
+  
 stop right/left clock  
 `ssrxxxxbyyy` or `sslxxxxbyyy` where xxxx is time in milliseconds and yyy is the bib number  
 
