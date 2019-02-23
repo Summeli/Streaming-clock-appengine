@@ -60,19 +60,17 @@ $(function () {
 			   ssr, ssl = stop right / left clock*/
 	if (cmd === 'srs') {
 	  time = 0;
-	  $("#timeonds").html(0);
-	  $("#minutes").html(0);
 	  running_l = 1;
 	  running_r = 1;
 	  stopped_l = 0;
 	  stopped_r= 0;
 	} else if (cmd === 'sbr') {
 	  bib_r = msg.substring(3, msg.lenght);
-	  console.log("bib number right" + bib_r);
+	  resetRightClock();
 	  $("#bib_right").html(bib_r);
 	} else if (cmd === 'sbl') {
 	  bib_l = msg.substring(3, msg.lenght);
-	  console.log("bib number left" + msg.substring(3, bib_l));
+	  resetLeftClock();
 	  $("#bib_left").html(bib_l);
 	}else if( cmd === 'srf'){
         console.log("false start right");
@@ -132,7 +130,18 @@ function printResult(bib,result){
 function pad(val) { 
   return val > 9 ? val : "0" + val; 
   }
-
+function resetRightClock(){
+    running_r = 0;
+	$("#seconds_right").html("00");
+	$("#minutes_right").html("00");
+	$("#fractions_right").html("00");
+}
+function resetLeftClock(){
+    running_l = 0;
+	$("#seconds_left").html("00");
+	$("#minutes_left").html("00");
+	$("#fractions_left").html("00");
+}
 function updateRightClock() {
   if (running_r == 0)
 	return;
@@ -150,9 +159,9 @@ function updateRightClock() {
   }
   totaltime_r = time - delay;
   if (totaltime_r < 0) {
-	$("#seconds_right").html(0);
-	$("#minutes_right").html(0);
-	$("#fractions_right").html(0);
+	$("#seconds_right").html("00");
+	$("#minutes_right").html("00");
+	$("#fractions_right").html("00");
 	return;
   } else if (stopped_r > 0 && totaltime_r > stopped_r) {
 	totaltime_r = stopped_r;
@@ -183,9 +192,9 @@ function updateLeftClock() {
   }
   totaltime_l = time - delay;
   if (totaltime_l < 0) {
-	$("#seconds_left").html(0);
-	$("#minutes_left").html(0);
-	$("#fractions_left").html(0);
+	$("#seconds_left").html("00");
+	$("#minutes_left").html("00");
+	$("#fractions_left").html("00");
 	return;
   } else if (stopped_l > 0 && totaltime_l > stopped_l) {
 	totaltime_l = stopped_l;
@@ -200,12 +209,12 @@ function updateLeftClock() {
 };
 
 window.onload = function init() {
-  $("#seconds_left").html(0);
-  $("#minutes_left").html(0);
-  $("#fractions_left").html(0);
-  $("#minutes_right").html(0);
-  $("#seconds_right").html(0);
-  $("#fractions_right").html(0);
+  $("#seconds_left").html("00");
+  $("#minutes_left").html("00");
+  $("#fractions_left").html("00");
+  $("#minutes_right").html("00");
+  $("#seconds_right").html("00");
+  $("#fractions_right").html("00");
   $("#delay").attr("value", 0);
   var input = document.getElementById("delay");
   input.addEventListener("change", delayUpdated, false);

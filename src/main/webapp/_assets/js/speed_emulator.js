@@ -23,6 +23,8 @@ var pingsent = 0;
 var oneminute = 60000;
 var bib_l = 22;
 var bib_r = 42;
+var websocket = new WebSocket(webSocketUri);
+
 $(function () {
 
   /* Get elements from the page */
@@ -36,8 +38,6 @@ $(function () {
   }
 
   /* Establish the WebSocket connection and register event handlers. */
-  var websocket = new WebSocket(webSocketUri);
-
   websocket.onopen = function () {
 	log('Connected : ' + webSocketUri);
   };
@@ -55,6 +55,7 @@ $(function () {
 	log('Error (see console)');
 	console.log(e);
   };
+
   document.getElementById('start').onclick = function () {
 	milliseconds = 0;
 	console.log("reset");
@@ -94,6 +95,7 @@ $(function () {
 	  websocket.send("PING");
 	}
   }, 10);
+
 });
 
 window.onload = function init() {
@@ -108,14 +110,16 @@ window.onload = function init() {
     input_br.addEventListener("change", BibRUpdated, false);
 }
 
-function BibLUpdated(event) {
-  var input = Number(event.target.value);
-  console.log(input);
-  bib_l = input;
-}
-function BibRUpdated(event) {
-  var input = Number(event.target.value);
-  console.log(input);
-  bib_r = input;
-}
+  function BibLUpdated(event) {
+     var input = Number(event.target.value);
+     console.log(input);
+     bib_l = input;
+     websocket.send('sbl'+bib_l);
+   }
+   function BibRUpdated(event) {
+     var input = Number(event.target.value);
+     console.log(input);
+     bib_r = input;
+     websocket.send('sbr'+bib_r);
+   }
 
