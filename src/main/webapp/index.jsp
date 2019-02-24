@@ -15,14 +15,14 @@
   limitations under the License.
 -->
 <html>
-  <%@ page import="com.finice.SendServlet" %>
+  <%@ page import="com.finice.servletUri" %>
   <head>
   <link rel="icon" type="image/png" href="_assets/img/favicon.png" />
   </head>
   <title>Send a message </title>
   <body>
     <p>finice time streamer </p>
-    <p>webSocketUri = "<%=SendServlet.getWebSocketAddress() %>"</p>
+    <p>webSocketUri = "<%=servletUri.getWebSocketAddress() %>"</p>
     <br><br>
     <h3>Speed climbing client</h3>
     <a href="speed_clock.jsp">Speed climbing demo client</a>

@@ -15,7 +15,7 @@
   limitations under the License.
 -->
 <html>
-<%@ page import="com.finice.SendServlet" %>
+<%@ page import="com.finice.servletUri" %>
 <head>
   <link rel="icon" type="image/png" href="_assets/img/favicon.png" />
   <script src="_assets/lib/jquery.min.js"></script>
@@ -55,7 +55,7 @@
     </div>
   </div>
   <script type='text/javascript'>
-	 var webSocketUri =  "<%=SendServlet.getWebSocketAddress() %>";
+	 var webSocketUri =  "<%=servletUri.getWebSocketAddress() %>";
   </script>
   <script type='text/javascript' src="_assets/js/speed_clock.js"></script>
 </body>
