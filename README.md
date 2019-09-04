@@ -10,13 +10,13 @@ This project uses websockets to start / stop timer
 ### Lead Climbing
 In lead climbing there is only one climber on the route, so we should have separete controls for two different clocks    
 
-reset clock to x minutes
+reset clock to x minutes    
 `rcrx` or `rclx`
 
-start clock 
+start clock     
 `scr` or `scl`
 
-pause clock
+pause clock    
 `pcrxxx` or `pclxxx` where xxxx is time in seconds
   
 ### Speed  
