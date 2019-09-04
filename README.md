@@ -1,13 +1,13 @@
 streaming-clock
 ============================
 
-Streaming clock for finice 2019 ice climbing competition
+Streaming clock for finice ice climbing competitions
 Written with / for Google appengine
 
 ## The protocol
 This project uses websockets to start / stop timer  
 
-### Lead Climbing
+### Lead Climbing (will be used in finice2020)
 In lead climbing there is only one climber on the route, so we should have separete controls for two different clocks    
 
 reset clock to x minutes    
@@ -19,7 +19,7 @@ start clock
 pause clock    
 `pcrxxx` or `pclxxx` where xxxx is time in seconds
   
-### Speed  
+### Speed  (was used in finice2019)
 reset clock to 0 and start it   
 `srs`  
   
