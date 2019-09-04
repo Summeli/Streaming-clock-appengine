@@ -6,6 +6,18 @@ Written with / for Google appengine
 
 ## The protocol
 This project uses websockets to start / stop timer  
+
+### Lead Climbing
+In lead climbing there is only one climber on the route, so we should have separete controls for two different clocks    
+
+reset clock to x minutes
+`rcrx` or `rclx`
+
+start clock 
+`scr` or `scl`
+
+pause clock
+`pcrxxx` or `pclxxx` where xxxx is time in seconds
   
 ### Speed  
 reset clock to 0 and start it   
@@ -15,7 +27,7 @@ false start right / left
 `srf` or `slf`  
   
 update bib-number right / left clock  
-`sbrxxx` or `sblxxx` where xxx is the bib number    
+`sbrxxxxxx` or `sblxxxxxx` where xxx is the bib number    
   
 stop right / left clock  
 `ssrxxxxbyyy` or `sslxxxxbyyy` where xxxx is time in milliseconds and yyy is the bib number  
