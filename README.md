@@ -4,6 +4,8 @@ streaming-clock
 Streaming clock for finice ice climbing competitions
 Written with / for Google appengine
 
+This was once used in finice2020. Rewite into node & react to be made in 2020.
+
 ## The protocol
 This project uses websockets to start / stop timer  
 
